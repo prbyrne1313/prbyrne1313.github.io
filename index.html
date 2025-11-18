@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Patrick Byrne | SharePoint & Power Platform Consultant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="SharePoint Online, PowerApps, and Power Automate consulting for workflow automation, approvals, and digital transformation." />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-alt: #020617;
+      --card-bg: #020617;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.1);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --text-strong: #f9fafb;
+      --border-subtle: #1f2937;
+      --danger: #f97373;
+      --radius: 14px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.85);
+      --transition-fast: 0.18s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 55%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 4rem;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1.25rem;
+      border-radius: 999px;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        120deg,
+        rgba(15, 23, 42, 0.85),
+        rgba(15, 23, 42, 0.9)
+      );
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      position: sticky;
+      top: 0.75rem;
+      z-index: 20;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-weight: 600;
+      color: var(--text-strong);
+      font-size: 0.98rem;
+      letter-spacing: 0.03em;
+    }
+
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 20% 20%, #38bdf8, #0ea5e9 45%, #0f172a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: white;
+      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.6),
+        0 12px 30px rgba(56, 189, 248, 0.3);
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      transition: background var(--transition-fast), color var(--transition-fast),
+        transform var(--transition-fast);
+    }
+
+    nav a:hover {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-strong);
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    .pill {
+      font-size: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: var(--text-muted);
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.18);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
+      gap: 2.5rem;
+      align-items: center;
+      margin-top: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-main-title {
+      font-size: clamp(2.1rem, 3vw, 2.7rem);
+      color: var(--text-strong);
+      margin: 0.35rem 0 0.5rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #e0f2fe;
+      font-size: 0.8rem;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+    }
+
+    .hero-subtitle {
+      color: var(--text-muted);
+      max-width: 36rem;
+      font-size: 0.98rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-keypoints {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-bottom: 1.4rem;
+      font-size: 0.8rem;
+    }
+
+    .hero-keypoints span {
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: #020617;
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      color: var(--text-muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 0.6rem 1.3rem;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      cursor: pointer;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+        background var(--transition-fast), border-color var(--transition-fast),
+        color var(--transition-fast);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      border-color: #0ea5e9;
+      color: #0f172a;
+      box-shadow: 0 18px 40px rgba(56, 189, 248, 0.35);
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 55px rgba(56, 189, 248, 0.42);
+      text-decoration: none;
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.8);
+      border-color: rgba(148, 163, 184, 0.4);
+      color: var(--text-main);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.95);
+      border-color: rgba(148, 163, 184, 0.9);
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    .meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-card {
+      border-radius: 22px;
+      padding: 1.3rem 1.2rem;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 52%);
+      border: 1px solid rgba(148, 163, 184, 0.32);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-card h2 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.17em;
+      color: var(--text-muted);
+      margin-top: 0;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin: 1rem 0 1.1rem;
+      font-size: 0.8rem;
+    }
+
+    .metric {
+      padding: 0.6rem 0.65rem;
+      border-radius: 13px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+    }
+
+    .metric-label {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .metric-value {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-strong);
+    }
+
+    .hero-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .tech-pill {
+      padding: 0.22rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(51, 65, 85, 0.95);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    section {
+      margin-bottom: 2.75rem;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      border-radius: var(--radius);
+      padding: 1rem 1rem 1.1rem;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.8);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+        border-color var(--transition-fast), background var(--transition-fast);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(56, 189, 248, 0.5);
+      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.95);
+      background: radial-gradient(circle at top left, #0b1120 0, #020617 52%);
+    }
+
+    .card-tag {
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.2rem;
+    }
+
+    .card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-strong);
+      margin-bottom: 0.35rem;
+    }
+
+    .card-text {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 0.5rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .card-list li {
+      margin-bottom: 0.25rem;
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .card-list li::before {
+      content: "•";
+      color: var(--accent);
+      margin-top: 0.08rem;
+      font-size: 0.85rem;
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .sm-muted {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .case-card {
+      border-radius: var(--radius);
+      padding: 1rem 1rem 1.1rem;
+      background: rgba(15, 23, 42, 0.98);
+      border: 1px solid rgba(31, 41, 55, 0.98);
+      box-shadow: 0 16px 30px rgba(15, 23, 42, 0.85);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .case-pill {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-bottom: 0.2rem;
+    }
+
+    .case-title {
+      font-size: 0.95rem;
+      color: var(--text-strong);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .case-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .case-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-top: 0.4rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .case-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .case-foot {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.7rem;
+      font-size: 0.75rem;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+      gap: 1.75rem;
+      align-items: flex-start;
+    }
+
+    .timeline {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      border-left: 1px dashed rgba(75, 85, 99, 0.8);
+    }
+
+    .timeline-item {
+      padding-left: 0.9rem;
+      margin-bottom: 0.9rem;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -5px;
+      top: 0.35rem;
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
+    }
+
+    .timeline-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      margin-bottom: 0.05rem;
+    }
+
+    .timeline-title {
+      font-size: 0.9rem;
+      color: var(--text-strong);
+      font-weight: 600;
+      margin-bottom: 0.1rem;
+    }
+
+    .timeline-text {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .contact-card {
+      border-radius: 18px;
+      padding: 1rem 1rem 1.1rem;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 65%);
+      border: 1px solid rgba(148, 163, 184, 0.34);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-title {
+      font-size: 1rem;
+      color: var(--text-strong);
+      margin-top: 0;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .contact-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      font-size: 0.84rem;
+    }
+
+    .contact-list li {
+      margin-bottom: 0.35rem;
+      display: flex;
+      gap: 0.4rem;
+      align-items: baseline;
+    }
+
+    .contact-label {
+      color: var(--text-muted);
+      width: 70px;
+      flex-shrink: 0;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+    }
+
+    footer {
+      margin-top: 2rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(31, 41, 55, 0.95);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    footer a {
+      color: var(--text-muted);
+    }
+
+    footer a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 18px;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .case-grid,
+      .split {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .cards-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .page {
+        padding-inline: 1rem;
+      }
+
+      header {
+        padding-inline: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">
+        <div class="logo-mark">PB</div>
+        <span>Patrick Byrne</span>
+      </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#projects">Case Studies</a>
+        <a href="#process">How I Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div>
+        <div class="pill">
+          <span class="pill-dot"></span>
+          <span>SharePoint &amp; Power Platform Consultant</span>
+        </div>
+        <h1 class="hero-main-title">
+          Automating the way your organization works with SharePoint, PowerApps &amp; Power Automate.
+        </h1>
+        <div class="hero-subtitle">
+          I design and build modern business solutions on Microsoft 365&mdash;replacing
+          spreadsheets, email chains, and paper forms with governed, audit-ready workflows.
+        </div>
+        <div class="hero-keypoints">
+          <span>SharePoint Online architecture &amp; migration</span>
+          <span>Custom PowerApps forms</span>
+          <span>Multi-step approval workflows</span>
+          <span>PDF &amp; document automation</span>
+        </div>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">
+            Book a no-pressure consult
+            <span>&rarr;</span>
+          </a>
+          <a href="#projects" class="btn-ghost">
+            View case studies
+          </a>
+        </div>
+        <div class="meta">
+          Based on real-world solutions for manufacturing, compliance, and operations teams.
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <h2>Snapshot</h2>
+        <div class="hero-metrics">
+          <div class="metric">
+            <div class="metric-label">Automated Workflows</div>
+            <div class="metric-value">25+ </div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Form Renovations</div>
+            <div class="metric-value">30+ </div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Time Saved</div>
+            <div class="metric-value">50–70%</div>
+          </div>
+        </div>
+        <div class="sm-muted">
+          Typical impact: less manual work, cleaner approvals, and better visibility across departments.
+        </div>
+        <div style="margin-top: 0.7rem; margin-bottom: 0.35rem; font-size: 0.78rem; color: var(--text-muted);">
+          Core tools &amp; platforms
+        </div>
+        <div class="hero-tech">
+          <span class="tech-pill">SharePoint Online</span>
+          <span class="tech-pill">PowerApps (Canvas)</span>
+          <span class="tech-pill">Power Automate</span>
+          <span class="tech-pill">PnP PowerShell</span>
+          <span class="tech-pill">Teams &amp; M365</span>
+          <span class="tech-pill">HTML / PDF flows</span>
+        </div>
+      </aside>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Services</div>
+          <div class="section-subtitle">
+            Whether you need a brand-new solution or to rescue an existing one, I focus on practical,
+            maintainable implementations your team can actually use.
+          </div>
+        </div>
+        <div class="pill-badge">
+          <span>Available for fractional &amp; project-based work</span>
+        </div>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-tag">PowerApps &amp; Forms</div>
+          <div class="card-title">Custom apps &amp; SharePoint forms</div>
+          <div class="card-text">
+            Design and build modern forms that replace email, PDFs, and legacy tools.
+          </div>
+          <ul class="card-list">
+            <li>Employee intake &amp; request forms</li>
+            <li>Multi-stage approvals and routing</li>
+            <li>Dynamic logic &amp; validation</li>
+            <li>Mobile-ready front ends</li>
+          </ul>
+          <div class="sm-muted">
+            Ideal for: HR, operations, safety, maintenance, and finance workflows.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">Workflow Automation</div>
+          <div class="card-title">Power Automate approvals &amp; notifications</div>
+          <div class="card-text">
+            Streamline approvals and recurring processes across your organization.
+          </div>
+          <ul class="card-list">
+            <li>Multi-branch approval workflows</li>
+            <li>HTML-to-PDF document generation</li>
+            <li>Deep links that open directly in Edit mode</li>
+            <li>Reminder &amp; escalation logic</li>
+          </ul>
+          <div class="sm-muted">
+            Typical outcome: 40–70% reduction in manual coordination.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">SharePoint Architecture</div>
+          <div class="card-title">Sites, lists, governance &amp; migration</div>
+          <div class="card-text">
+            Clean, scalable structures that don't crumble under list thresholds or permission sprawl.
+          </div>
+          <ul class="card-list">
+            <li>List &amp; library design</li>
+            <li>Indexing &amp; large list optimization</li>
+            <li>On-prem &rarr; SharePoint Online migrations</li>
+            <li>Permissions &amp; external sharing cleanup</li>
+          </ul>
+          <div class="sm-muted">
+            Includes guidance for IT and business owners on long-term governance.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section id="projects">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Case Studies</div>
+          <div class="section-subtitle">
+            A selection of recent projects that show how I turn manual, error-prone processes
+            into automated workflows that people actually like using.
+          </div>
+        </div>
+        <div class="pill-badge">
+          <span>Real-world work from manufacturing &amp; operations environments</span>
+        </div>
+      </div>
+
+      <div class="case-grid">
+        <article class="case-card">
+          <div class="case-pill">Compliance &amp; Approvals</div>
+          <div class="case-title">NA Sponsorship Compliance Automation</div>
+          <div class="case-meta">SharePoint Online · PowerApps · Power Automate · PDF generation</div>
+          <div class="case-label">Before</div>
+          <p class="case-text">
+            Email-based submissions, inconsistent data, and manual PDF creation made the
+            sponsorship process slow and hard to audit.
+          </p>
+          <div class="case-label">Solution</div>
+          <p class="case-text">
+            Built a structured SharePoint list and PowerApps form with dynamic fields, automatic
+            approver routing, encoded edit links, and HTML-to-PDF generation. Approvers receive
+            a button that opens the specific request directly in Edit mode.
+          </p>
+          <div class="case-label">Impact</div>
+          <p class="case-text">
+            Reduced processing time by an estimated 60–70% and standardized the entire workflow
+            for better compliance and traceability.
+          </p>
+          <div class="case-foot">
+            <span class="tech-pill">Approvals</span>
+            <span class="tech-pill">HTML Email</span>
+            <span class="tech-pill">Encoded URLs</span>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <div class="case-pill">HR &amp; Safety</div>
+          <div class="case-title">Boot Voucher Request &amp; Manager Approvals</div>
+          <div class="case-meta">PowerApps · SharePoint · PDF templates</div>
+          <div class="case-label">Before</div>
+          <p class="case-text">
+            Paper forms and emails, inconsistent eligibility checks, and no standardized voucher
+            documentation.
+          </p>
+          <div class="case-label">Solution</div>
+          <p class="case-text">
+            Created a PowerApps form that validates "Last Replaced" dates and determines whether
+            manager approval is required. Automated branded PDF voucher generation and email
+            delivery to the requester and approvers.
+          </p>
+          <div class="case-label">Impact</div>
+          <p class="case-text">
+            Eliminated paper, reduced manager back-and-forth, and enforced consistent policy rules
+            across departments.
+          </p>
+          <div class="case-foot">
+            <span class="tech-pill">Policy Logic</span>
+            <span class="tech-pill">PDF Output</span>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <div class="case-pill">Training &amp; Performance</div>
+          <div class="case-title">Steelmaking Crane Performance Checkoff</div>
+          <div class="case-meta">SharePoint · PowerApps · Power Automate</div>
+          <div class="case-label">Before</div>
+          <p class="case-text">
+            Trainee evaluations were handled manually and often delayed in reaching HR systems.
+          </p>
+          <div class="case-label">Solution</div>
+          <p class="case-text">
+            Built a checkoff solution in SharePoint with a PowerApps form, automated emails to
+            trainees and HR, and deep links so forms open directly in Edit mode for final filing.
+          </p>
+          <div class="case-label">Impact</div>
+          <p class="case-text">
+            Ensured every completed evaluation reached HR, reduced delays, and improved auditability
+            for training records.
+          </p>
+          <div class="case-foot">
+            <span class="tech-pill">Training</span>
+            <span class="tech-pill">SuccessFactors workflow support</span>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <div class="case-pill">Operations &amp; Travel</div>
+          <div class="case-title">Travel Request Automation &amp; PDF Output</div>
+          <div class="case-meta">Power Automate · HTML/PDF · SharePoint</div>
+          <div class="case-label">Before</div>
+          <p class="case-text">
+            Travel approvals arrived in mixed formats, with no unified documentation or visibility.
+          </p>
+          <div class="case-label">Solution</div>
+          <p class="case-text">
+            Reused and adapted a proven PDF template from another workflow, wired to a new Travel
+            Request form. Automated approval routing and polished PDF output for consistent
+            documentation and archiving.
+          </p>
+          <div class="case-label">Impact</div>
+          <p class="case-text">
+            Created a repeatable pattern for future request-type workflows and reduced the effort
+            needed to introduce new forms.
+          </p>
+          <div class="case-foot">
+            <span class="tech-pill">Reusable Templates</span>
+            <span class="tech-pill">Approvals</span>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <div class="case-pill">Large Lists</div>
+          <div class="case-title">SharePoint Calendar Threshold Optimization</div>
+          <div class="case-meta">SharePoint Online · List indexing</div>
+          <div class="case-label">Challenge</div>
+          <p class="case-text">
+            A calendar with thousands of events was hitting the 5,000-item list view threshold,
+            causing errors and slow loads.
+          </p>
+          <div class="case-label">Solution</div>
+          <p class="case-text">
+            Indexed key date columns and designed a view that focuses on an 8-month history and
+            2-month future window, keeping the view under the threshold while preserving visibility.
+          </p>
+          <div class="case-label">Impact</div>
+          <p class="case-text">
+            Views load quickly and reliably, and site owners understand how to keep them that way
+            as the calendar grows.
+          </p>
+          <div class="case-foot">
+            <span class="tech-pill">Indexing</span>
+            <span class="tech-pill">Performance</span>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <div class="case-pill">External Access</div>
+          <div class="case-title">QR Code Access for Non-AD Contractors</div>
+          <div class="case-meta">SharePoint Online · External sharing · QR</div>
+          <div class="case-label">Challenge</div>
+          <p class="case-text">
+            Contractors without Entra accounts needed quick access to specific equipment documents
+            on the shop floor, without broad access to the tenant.
+          </p>
+          <div class="case-label">Solution</div>
+          <p class="case-text">
+            Configured a SharePoint site to safely host documentation with tightly scoped share
+            links, and generated QR codes pointing to specific files. Validated the user experience
+            from a non-tenant perspective.
+          </p>
+          <div class="case-label">Impact</div>
+          <p class="case-text">
+            Contractors scan a code, view the correct document, and never see anything else in the
+            environment.
+          </p>
+          <div class="case-foot">
+            <span class="tech-pill">External Sharing</span>
+            <span class="tech-pill">Non-managed devices</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROCESS & ABOUT -->
+    <section id="process">
+      <div class="split">
+        <div>
+          <div class="section-header">
+            <div>
+              <div class="section-title">How I Work</div>
+              <div class="section-subtitle">
+                A lightweight, collaborative approach that respects IT constraints while giving
+                business teams what they need.
+              </div>
+            </div>
+          </div>
+
+          <ul class="timeline">
+            <li class="timeline-item">
+              <div class="timeline-label">Step 1</div>
+              <div class="timeline-title">Discovery &amp; quick audit</div>
+              <div class="timeline-text">
+                We review your current process (forms, email chains, spreadsheets) and clarify the
+                real business rules and exceptions that matter.
+              </div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-label">Step 2</div>
+              <div class="timeline-title">Solution design</div>
+              <div class="timeline-text">
+                I propose a SharePoint/Power Platform architecture: lists, forms, flows, and any
+                PDFs or integrations. You get a short written outline before we build.
+              </div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-label">Step 3</div>
+              <div class="timeline-title">Build &amp; iterate</div>
+              <div class="timeline-text">
+                I implement the solution in your tenant, with checkpoints where your key users can
+                review and give feedback. Adjustments are built into the process.
+              </div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-label">Step 4</div>
+              <div class="timeline-title">Launch &amp; handoff</div>
+              <div class="timeline-text">
+                We go live with clear documentation for admins and end users, and optionally a
+                support window for tweaks after real-world use.
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <aside id="about">
+          <div class="section-header" style="margin-bottom: 0.8rem;">
+            <div>
+              <div class="section-title">About</div>
+            </div>
+          </div>
+
+          <div class="card" style="padding-bottom: 0.9rem;">
+            <div class="card-title">Hi, I’m Patrick.</div>
+            <p class="card-text">
+              I’ve spent years inside a large manufacturing environment, owning SharePoint Online and
+              Power Platform solutions that support safety, HR, operations, compliance, and finance.
+            </p>
+            <p class="card-text">
+              That means I understand both the technical side (governance, security, network
+              realities) and the people side (approvers who are busy, forms that need to "just work",
+              and processes that can’t break).
+            </p>
+            <ul class="card-list" style="margin-top: 0.4rem;">
+              <li>SharePoint Online &amp; hybrid experience</li>
+              <li>PowerApps, Power Automate, PnP PowerShell</li>
+              <li>Datacenter &amp; network-aware solution design</li>
+            </ul>
+            <div class="sm-muted">
+              If you need someone who can talk to both IT and business stakeholders and then
+              actually ship working solutions, that’s where I fit.
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Let’s Talk</div>
+          <div class="section-subtitle">
+            Have a workflow that’s stuck in email, spreadsheets, or an old SharePoint site?
+            Send a short description and I’ll let you know what’s realistic and what it might look like.
+          </div>
+        </div>
+      </div>
+
+      <div class="split">
+        <div class="contact-card">
+          <h3 class="contact-title">Get in touch</h3>
+          <p class="contact-text">
+            The fastest way to start is to email me a rough outline of your current process and what
+            you’d like to improve. A few screenshots of existing forms or flows are always helpful.
+          </p>
+          <ul class="contact-list">
+            <li>
+              <span class="contact-label">Email</span>
+              <span>
+                <a href="mailto:youremail@example.com">youremail@example.com</a>
+                <!-- Replace with your real email -->
+              </span>
+            </li>
+            <li>
+              <span class="contact-label">Location</span>
+              <span>United States (remote-friendly)</span>
+            </li>
+            <li>
+              <span class="contact-label">LinkedIn</span>
+              <span>
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener">
+                  linkedin.com/in/yourprofile
+                </a>
+                <!-- Replace with your real LinkedIn -->
+              </span>
+            </li>
+          </ul>
+          <p class="contact-text" style="margin-top: 0.8rem;">
+            Typical engagements range from a few days (single workflow) to a few weeks (multi-step
+            solution with forms, automations, and PDFs).
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">What to include</div>
+          <div class="card-title">A helpful first message</div>
+          <div class="card-text">
+            To quickly understand your needs, it helps if you share:
+          </div>
+          <ul class="card-list">
+            <li>What process you’re trying to digitize or fix</li>
+            <li>Who is involved (requesters, approvers, admins)</li>
+            <li>Rough volume (per week/month)</li>
+            <li>Any existing SharePoint sites, forms, or flows in play</li>
+          </ul>
+          <div class="sm-muted">
+            From there, I can suggest one or two concrete options and a rough project shape.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>&copy; <span id="year"></span> Patrick Byrne. All rights reserved.</div>
+      <div>
+        <a href="#top">Back to top</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
